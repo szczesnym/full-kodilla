@@ -18,28 +18,28 @@ public class CollectionTestSuite {
     @Test
     public void testExterminateNullList() {
         //Given
+        OddNumberExterminator sutExterminator = new OddNumberExterminator();
         //When
-        OddNumberExterminator testExterminator = new OddNumberExterminator();
-        ArrayList <Integer> resultArrayList = testExterminator.exterminate(null);
+        ArrayList <Integer> resultArrayList = sutExterminator.exterminate(null);
         //Then
         Assert.assertNull(resultArrayList);
     }
     @Test
     public void testExterminateEmptyList() {
         //Given
-        ArrayList <Integer> testArrayList = new ArrayList<>();
+        ArrayList <Integer> sutArrayList = new ArrayList<>();
+        OddNumberExterminator sutExterminator = new OddNumberExterminator();
         //When
-        OddNumberExterminator testExterminator = new OddNumberExterminator();
-        ArrayList <Integer> resultArrayList = testExterminator.exterminate(testArrayList);
+        ArrayList <Integer> resultArrayList = sutExterminator.exterminate(sutArrayList);
         //Then
         Assert.assertTrue(resultArrayList.isEmpty());
     }
     @Test
     public void testExterminateNotEmptyList() {
         //Given
-        OddNumberExterminator testExterminator = new OddNumberExterminator();
+        OddNumberExterminator sutExterminator = new OddNumberExterminator();
         //When
-        ArrayList <Integer> testArrayList = testExterminator.exterminate( new ArrayList(Arrays.asList(0 , 1, 2, 3, 4, 5, 6, 7, 8, 9)));
+        ArrayList <Integer> testArrayList = sutExterminator.exterminate( new ArrayList(Arrays.asList(0 , 1, 2, 3, 4, 5, 6, 7, 8, 9)));
         //Then
         Assert.assertTrue(testArrayList.equals(new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8))));
     }
