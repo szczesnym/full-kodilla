@@ -7,7 +7,7 @@ public class Calculator {
     public float addNumbers(float x, float y) {
         return x + y;
     }
-    public float divideNumbers(float x, float y) {
+    public float subtractNumbers(float x, float y) {
         return x - y;
     }
 }
