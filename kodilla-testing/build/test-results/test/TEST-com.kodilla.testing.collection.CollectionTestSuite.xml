@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.collection.CollectionTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-04-18T09:07:56" hostname="marcinsHP" time="0.004">
+<testsuite name="com.kodilla.testing.collection.CollectionTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-04-18T10:22:00" hostname="marcinsHP" time="0.009">
   <properties/>
-  <testcase name="testExterminateNotEmptyList" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.004"/>
+  <testcase name="testExterminateNullList" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.008"/>
+  <testcase name="testExterminateNotEmptyList" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.001"/>
   <testcase name="testExterminateEmptyList" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.0"/>
   <system-out><![CDATA[Test List Case: begin
+Test List Case: end
+Test List Case: begin
 Test List Case: end
 Test List Case: begin
 Test List Case: end

@@ -16,6 +16,15 @@ public class CollectionTestSuite {
         System.out.println("Test List Case: end");
     }
     @Test
+    public void testExterminateNullList() {
+        //Given
+        //When
+        OddNumberExterminator testExterminator = new OddNumberExterminator();
+        ArrayList <Integer> resultArrayList = testExterminator.exterminate(null);
+        //Then
+        Assert.assertNull(resultArrayList);
+    }
+    @Test
     public void testExterminateEmptyList() {
         //Given
         ArrayList <Integer> testArrayList = new ArrayList<>();
@@ -28,12 +37,10 @@ public class CollectionTestSuite {
     @Test
     public void testExterminateNotEmptyList() {
         //Given
-        ArrayList <Integer> testArrayList;
-        ArrayList <Integer> verifyArrayList;
         OddNumberExterminator testExterminator = new OddNumberExterminator();
         //When
-        testArrayList =testExterminator.exterminate( new ArrayList(Arrays.asList(0 , 1, 2, 3, 4, 5, 6, 7, 8, 9)));
-        verifyArrayList = new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8));
-        Assert.assertTrue( testArrayList.equals(verifyArrayList) );
+        ArrayList <Integer> testArrayList = testExterminator.exterminate( new ArrayList(Arrays.asList(0 , 1, 2, 3, 4, 5, 6, 7, 8, 9)));
+        //Then
+        Assert.assertTrue(testArrayList.equals(new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8))));
     }
 }
