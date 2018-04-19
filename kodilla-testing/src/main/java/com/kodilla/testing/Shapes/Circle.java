@@ -9,7 +9,7 @@ class Circle implements Shape {
     }
     @Override
     public double  sizeOfFigure() {
-        return Math.pow(2,this.radius) * Math.PI;
+        return Math.pow(this.radius, 2) * Math.PI;
     }
 
     public Circle(double radius) {

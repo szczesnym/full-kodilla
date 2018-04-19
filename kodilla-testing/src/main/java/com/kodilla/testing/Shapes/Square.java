@@ -5,7 +5,7 @@ public class Square implements Shape {
 
     @Override
     public double sizeOfFigure() {
-        return Math.pow(2,this.side);
+        return Math.pow(this.side, 2);
     }
 
     @Override

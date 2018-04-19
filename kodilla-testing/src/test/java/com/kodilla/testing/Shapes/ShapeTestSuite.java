@@ -6,41 +6,43 @@ import org.junit.Assert;
 
 public class ShapeTestSuite {
     private static int testCounter = 0;
+    private ShapeCollector sutShapeCollector;
+
 
     @Before
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
+        this.sutShapeCollector = new ShapeCollector();
     }
 
     @Test
     public void testAddShapeNotNull() {
         //Given
         Shape testShape = new Circle(5);
+        sutShapeCollector.addShapeToList(testShape);
         //When
-        ShapeCollector listOfShapes = new ShapeCollector();
-        listOfShapes.addShapeToList(testShape);
+        int testResult = sutShapeCollector.countShapes();
         //Then
-        Assert.assertEquals(1, listOfShapes.countShapes());
+        Assert.assertEquals(1, testResult);
     }
 
     @Test
     public void testAddShapeNull() {
         //Given
-        ShapeCollector listOfShapes = new ShapeCollector();
+        sutShapeCollector.addShapeToList(null);
         //When
-        listOfShapes.addShapeToList(null);
+        int testResult = sutShapeCollector.countShapes();
         //Then
-        Assert.assertEquals(0, listOfShapes.countShapes());
+        Assert.assertEquals(0, testResult);
     }
 
     @Test
     public void testRemoveShapeNotNull() {
         //Given
         Shape testShape = new Triangle(5, 5, 5);
-        ShapeCollector sutShapeCollector = new ShapeCollector();
-        //When
         sutShapeCollector.addShapeToList(testShape);
+        //When
         boolean testResult = sutShapeCollector.removeShapeFromList(testShape);
         //Then
         Assert.assertTrue(testResult);
@@ -48,9 +50,9 @@ public class ShapeTestSuite {
 
     @Test
     public void testRemoveShapeFromListNull() {
-        ShapeCollector sutShapeCollector = new ShapeCollector();
-        //When
+        //Given
         sutShapeCollector.addShapeToList(null);
+        //When
         boolean testResult = sutShapeCollector.removeShapeFromList(null);
         //Then
         Assert.assertFalse(testResult);
@@ -60,9 +62,8 @@ public class ShapeTestSuite {
     public void testRemoveShapeFromListNotNullExisting() {
         //Given
         Shape sutShape = new Circle(6);
-        ShapeCollector sutShapeCollector = new ShapeCollector();
-        //When
         sutShapeCollector.addShapeToList(sutShape);
+        //When
         boolean testResult = sutShapeCollector.removeShapeFromList(sutShape);
         //Then
         Assert.assertTrue(testResult);
@@ -72,7 +73,6 @@ public class ShapeTestSuite {
     public void testRemoveShapeFromListNotNullNotExisting() {
         //Given
         Shape sutShape = new Circle(6);
-        ShapeCollector sutShapeCollector = new ShapeCollector();
         //When
         sutShapeCollector.addShapeToList(new Triangle(5, 5, 5));
         //Then
@@ -83,9 +83,8 @@ public class ShapeTestSuite {
     public void testNFigureFromList() {
         //Given
         Shape sutShape = new Square(6);
-        ShapeCollector sutShapeCollector = new ShapeCollector();
-        //When
         sutShapeCollector.addShapeToList(sutShape);
+        //When
         Shape resultShape = sutShapeCollector.nFigureFromList(0);
         //Then
         Assert.assertEquals(sutShape, resultShape);
@@ -94,9 +93,8 @@ public class ShapeTestSuite {
     public void testNFigureFromListNotExisting() {
         //Given
         Shape sutShape = new Circle(4);
-        ShapeCollector sutShapeCollector = new ShapeCollector();
-        //When
         sutShapeCollector.addShapeToList(sutShape);
+        //When
         Shape resultShape = sutShapeCollector.nFigureFromList(1);
         //Then
         Assert.assertNull(resultShape);
