@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 import com.kodilla.testing.forum.statistic.ForumStatistics;
-import com.kodilla.testing.forum.statistics.Statistics;
+//import com.kodilla.testing.forum.statistics.Statistics;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(new ArrayList<>());
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        double sutAdvPostPerUser = forumStatistics.getAdvCommentsPerUser();
+        double sutAdvPostPerUser = forumStatistics.getAdvPostsPerUser();
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
