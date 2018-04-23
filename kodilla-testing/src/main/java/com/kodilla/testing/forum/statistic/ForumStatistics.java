@@ -1,7 +1,5 @@
 package com.kodilla.testing.forum.statistic;
 
-import com.kodilla.testing.forum.statistics.Statistics;
-
 public class ForumStatistics {
     private double advPostsPerUser, advCommentsPerUser, advCommentsPerPost;
     private int usersCount, postsCount, commentsCount;

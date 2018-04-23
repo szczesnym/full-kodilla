@@ -1,13 +1,10 @@
-package com.kodilla.testing.forum.statistics;
+package com.kodilla.testing.forum.statistic;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
-import com.kodilla.testing.forum.statistic.ForumStatistics;
-//import com.kodilla.testing.forum.statistics.Statistics;
 
 import java.util.ArrayList;
-
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
