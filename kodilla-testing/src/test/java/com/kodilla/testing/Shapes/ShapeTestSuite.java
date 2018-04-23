@@ -20,21 +20,19 @@ public class ShapeTestSuite {
     public void testAddShapeNotNull() {
         //Given
         Shape testShape = new Circle(5);
-        sutShapeCollector.addShapeToList(testShape);
         //When
-        int testResult = sutShapeCollector.countShapes();
+        boolean testResult = sutShapeCollector.addShapeToList(testShape);
         //Then
-        Assert.assertEquals(1, testResult);
+        Assert.assertEquals(true, testResult);
     }
 
     @Test
     public void testAddShapeNull() {
         //Given
-        sutShapeCollector.addShapeToList(null);
         //When
-        int testResult = sutShapeCollector.countShapes();
+        boolean testResult = sutShapeCollector.addShapeToList(null);
         //Then
-        Assert.assertEquals(0, testResult);
+        Assert.assertEquals(false, testResult);
     }
 
     @Test
@@ -89,6 +87,7 @@ public class ShapeTestSuite {
         //Then
         Assert.assertEquals(sutShape, resultShape);
     }
+
     @Test
     public void testNFigureFromListNotExisting() {
         //Given

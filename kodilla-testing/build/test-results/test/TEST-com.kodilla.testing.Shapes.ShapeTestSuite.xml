@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.Shapes.ShapeTestSuite" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-04-19T13:46:22" hostname="marcinsHP" time="0.007">
+<testsuite name="com.kodilla.testing.Shapes.ShapeTestSuite" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-04-23T13:02:08" hostname="marcinsHP" time="0.007">
   <properties/>
   <testcase name="testAddShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
   <testcase name="testRemoveShapeFromListNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <testcase name="testAddShapeNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <testcase name="testNFigureFromListNotExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
-  <testcase name="testRemoveShapeFromListNotNullExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
+  <testcase name="testRemoveShapeFromListNotNullExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <testcase name="testNFigureFromList" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
-  <testcase name="testRemoveShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <testcase name="testRemoveShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
   <testcase name="testRemoveShapeFromListNotNullNotExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <system-out><![CDATA[Preparing to execute test #1
 Preparing to execute test #2

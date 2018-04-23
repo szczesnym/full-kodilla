@@ -15,9 +15,12 @@ public class ShapeCollector {
         }
     }
 
-    public void addShapeToList(Shape shape) {
+    public boolean addShapeToList(Shape shape) {
         if (shape != null) {
             this.listOfShapes.add(shape);
+            return true;
+        } else {
+            return false;
         }
     }
 
