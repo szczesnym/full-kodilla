@@ -35,7 +35,7 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(0, this.sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(0, sutAdvPostPerUser, 0.001);
         Assert.assertEquals(0, sutAdvCommentsPerUser, 0.001);
         Assert.assertEquals(0, sutAdvCommentsPerPost, 0.001);
     }
@@ -52,9 +52,9 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(0, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(0, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(0, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(0, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(0, sutAdvCommentsPerPost, 0.001);
     }
 
     @Test
@@ -69,9 +69,9 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(0, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(0, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(450.0 / 1000.0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(0, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(0, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(450.0 / 1000.0, sutAdvCommentsPerPost, 0.001);
     }
 
     @Test
@@ -88,9 +88,9 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(2000, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(9000, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(9000.0 / 2000.0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(2000, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(9000, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(9000.0 / 2000.0, sutAdvCommentsPerPost, 0.001);
     }
 
     @Test
@@ -107,9 +107,9 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(90.0, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(27.0, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(27.0 / 90.0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(90.0, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(27.0, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(27.0 / 90.0, sutAdvCommentsPerPost, 0.001);
     }
 
     @Test
@@ -126,9 +126,9 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(48, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(1000, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(1000.0 / 48.0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(48, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(1000, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(1000.0 / 48.0, sutAdvCommentsPerPost, 0.001);
     }
 
     @Test
@@ -147,8 +147,8 @@ public class ForumStatisticsTestSuite {
         double sutAdvCommentsPerUser = forumStatistics.getAdvCommentsPerUser();
         double sutAdvCommentsPerPost = forumStatistics.getAdvCommentsPerPost();
         //Then
-        Assert.assertEquals(48.0 / 100.0, this.sutAdvPostPerUser, 0.001);
-        Assert.assertEquals(1000.0 / 100.0, this.sutAdvCommentsPerUser, 0.001);
-        Assert.assertEquals(1000.0 / 48.0, this.sutAdvCommentsPerPost, 0.001);
+        Assert.assertEquals(48.0 / 100.0, sutAdvPostPerUser, 0.001);
+        Assert.assertEquals(1000.0 / 100.0, sutAdvCommentsPerUser, 0.001);
+        Assert.assertEquals(1000.0 / 48.0, sutAdvCommentsPerPost, 0.001);
     }
 }
