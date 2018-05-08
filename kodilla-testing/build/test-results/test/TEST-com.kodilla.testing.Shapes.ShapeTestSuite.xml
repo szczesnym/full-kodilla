@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.Shapes.ShapeTestSuite" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-04-23T13:02:08" hostname="marcinsHP" time="0.007">
+<testsuite name="com.kodilla.testing.Shapes.ShapeTestSuite" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-04-27T14:12:14" hostname="marcinsHP" time="0.005">
   <properties/>
   <testcase name="testAddShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
-  <testcase name="testRemoveShapeFromListNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <testcase name="testRemoveShapeFromListNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
   <testcase name="testAddShapeNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <testcase name="testNFigureFromListNotExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
   <testcase name="testRemoveShapeFromListNotNullExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
