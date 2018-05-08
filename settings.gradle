@@ -5,4 +5,5 @@ include 'kodilla-exception'
 include 'kodilla-testing'
 include 'kodilla-atm'
 findProject(':kodilla-atm')?.name = 'atm'
+include 'kodilla-good-patterns'
 
