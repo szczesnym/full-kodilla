@@ -5,48 +5,33 @@ import org.junit.Test;
 
 public class FlightTestSuite {
     @Test(expected = RouteNotFoundException.class)
-    public void checkFromCityNotInMap() {
+    public void checkFromCityNotInMap() throws RouteNotFoundException {
         //Given
         FlightSearch flightSearch = new FlightSearch();
         //When
         flightSearch.addDestinationToMap("Krakow", "Berlin");
-        // java unreported exception  flightSearch.findFlight(new Flight("Warsaw", "Barcelona"));
         //Then
-        try {
-            flightSearch.findFlight(new Flight("Warsaw", "Barcelona"));
-        } catch (RouteNotFoundException e) {
-            System.out.format("Exception CATCHed:%s", e.getMessage());
-        }
+        flightSearch.findFlight(new Flight("Warsaw", "Barcelona"));
     }
 
     @Test(expected = RouteNotFoundException.class)
-    public void checkFromCityInMapToCityNotInMap() {
+    public void checkFromCityInMapToCityNotInMap() throws RouteNotFoundException {
         //Given
         FlightSearch flightSearch = new FlightSearch();
         //When
         flightSearch.addDestinationToMap("Krakow", "Berlin");
-        // java unreported exception  flightSearch.findFlight(new Flight("Krakow", "Barcelona"));
         //Then
-        try {
-            flightSearch.findFlight(new Flight("Krakow", "Barcelona"));
-        } catch (RouteNotFoundException e) {
-            System.out.format("Exception CATCHed:%s", e.getMessage());
-        }
+        flightSearch.findFlight(new Flight("Krakow", "Barcelona"));
     }
 
     @Test
-    public void checkFromCityInMapToCityInMap() {
+    public void checkFromCityInMapToCityInMap() throws RouteNotFoundException {
         //Given
         FlightSearch flightSearch = new FlightSearch();
         boolean searchResult = false;
         //When
         flightSearch.addDestinationToMap("Krakow", "Berlin");
-        // java unreported exception flightSearch.findFlight(new Flight("Krakow", "Berlin"));
-        try {
-            searchResult = flightSearch.findFlight(new Flight("Krakow", "Berlin"));
-        } catch (RouteNotFoundException e) {
-            System.out.format("Exception CATCHed:%s", e.getMessage());
-        }
+        searchResult = flightSearch.findFlight(new Flight("Krakow", "Berlin"));
         //Then
         Assert.assertTrue(searchResult);
     }

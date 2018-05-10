@@ -15,6 +15,7 @@ public class FlightSearch {
 
     public boolean findFlight(Flight flight) throws RouteNotFoundException {
         String cityOfDeparture = flight.getDepartureAirport();
+
         if (flightMap.get(cityOfDeparture) == null) {
             throw new RouteNotFoundException("No routes FROM this city");
         }
