@@ -20,7 +20,8 @@ public class FlightSearch {
             throw new RouteNotFoundException("No routes FROM this city");
         }
         Map<String, Boolean> mapOfPossibleDestinations = flightMap.get(cityOfDeparture);
-        if (mapOfPossibleDestinations.get(flight.getArrivalAirport()) != null) {
+        if ((mapOfPossibleDestinations.get(flight.getArrivalAirport()) != null) &&
+            (mapOfPossibleDestinations.get(flight.getArrivalAirport()))) {
             return true;
         } else {
             throw new RouteNotFoundException("No routes TO this city");
