@@ -20,7 +20,7 @@ public class FlightBook {
     public void addFlightToBook(Flight flight) {
         if (bookOfFlights.isEmpty()) {
             bookOfFlights.add(flight);
-        } else if (!bookOfFlights.stream().anyMatch(bookItem -> bookItem.equals(flight))) {
+        } else if (!bookOfFlights.contains(flight)) {
             bookOfFlights.add(flight);
         }
     }
@@ -52,23 +52,5 @@ public class FlightBook {
         }
         return searchResult;
     }
-
-    //full implemenation needed
-
-    public Stream<Flight> toStream() {
-        final List<Flight> streamBookOfFlights = new ArrayList<>();
-        streamBookOfFlights.addAll(bookOfFlights);
-        return streamBookOfFlights.stream();
-    }
-
-    public FlightBook(Flight flight) {
-        bookOfFlights = new ArrayList<>();
-        bookOfFlights.add(flight);
-    }
-
-    public int sizeOfBook() {
-        return bookOfFlights.size();
-    }
-    //END OF: full implemenation needed
 }
 
