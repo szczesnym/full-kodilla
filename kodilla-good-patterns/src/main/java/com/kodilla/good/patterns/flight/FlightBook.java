@@ -18,9 +18,7 @@ public class FlightBook {
     }
 
     public void addFlightToBook(Flight flight) {
-        if (bookOfFlights.isEmpty()) {
-            bookOfFlights.add(flight);
-        } else if (!bookOfFlights.contains(flight)) {
+        if (!bookOfFlights.contains(flight)) {
             bookOfFlights.add(flight);
         }
     }
