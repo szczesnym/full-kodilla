@@ -15,8 +15,9 @@ public class Application {
         Food2DoorSupplier testSupplier2 = new HealthyShop();
         Food2DoorSupplier testSupplier3 = new GlutenFreeShop();
 
-        System.out.format("Order status by EFS:%s\n\n", Food2DoorOrderProcessor.placeOrder(testSupplier1, testOrder1));
-        System.out.format("Order status by HS:%s\n\n", Food2DoorOrderProcessor.placeOrder(testSupplier2, testOrder2));
-        System.out.format("Order status by GFS:%s\n\n", Food2DoorOrderProcessor.placeOrder(testSupplier3, testOrder3));
+        Food2DoorOrderProcessor orderProcessor = new Food2DoorOrderProcessor();
+        System.out.format("Order status by EFS:%s\n\n", orderProcessor.placeOrder(testSupplier1, testOrder1));
+        System.out.format("Order status by HS:%s\n\n", orderProcessor.placeOrder(testSupplier2, testOrder2));
+        System.out.format("Order status by GFS:%s\n\n", orderProcessor.placeOrder(testSupplier3, testOrder3));
     }
 }

@@ -24,11 +24,16 @@ public class FlightBook {
             bookOfFlights.add(flight);
         }
     }
-
-    public boolean searchBookForFlight(Flight flight) {
-        return bookOfFlights.stream()
-                .anyMatch(flight1 -> flight1.getDepartureAirport().equals(flight.getDepartureAirport()) && flight1.getArrivalAirport().equals(flight.getArrivalAirport()));
-
+    public List<Flight> allFlights(AirportEnum airportFrom, FlightPoint flightPoint) {
+        if(flightPoint.equals(FlightPoint.From )) {
+            return bookOfFlights.stream()
+                .filter(flight -> flight.getDepartureAirport().equals(airportFrom))
+                .collect(Collectors.toList());
+        } else {
+            return bookOfFlights.stream()
+                    .filter(flight -> flight.getArrivalAirport().equals(airportFrom))
+                    .collect(Collectors.toList());
+        }
     }
 
     public Flight flightFromBook(AirportEnum fromAirport, AirportEnum toAirport) {

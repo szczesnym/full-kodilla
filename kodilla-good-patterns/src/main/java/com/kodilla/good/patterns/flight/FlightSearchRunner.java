@@ -13,7 +13,7 @@ public class FlightSearchRunner {
         Flight flight5 = new Flight(BER, LUB);
         Flight flight6 = new Flight(LIS, LUB);
         Flight flight7 = new Flight(WAW, LIS);
-        Flight searchFlight = new Flight(WAW, LUB);
+        Flight flightToSearchConnections = new Flight(WAW, LUB);
         FlightBook flightBook = new FlightBook();
         flightBook.addFlightToBook(flight1);
         flightBook.addFlightToBook(flight2);
@@ -23,7 +23,13 @@ public class FlightSearchRunner {
         flightBook.addFlightToBook(flight6);
         flightBook.addFlightToBook(flight7);
 
-        List<List<Flight>> flightPlan = FlightSearcher.flightPlan(flightBook, searchFlight);
+        FlightSearcher flightSearcher = new FlightSearcher(flightBook);
+        System.out.format("All flights from:%s -> %s\n", AirportEnum.WAW, flightSearcher.allFlightsFromAirport(AirportEnum.WAW));
+        System.out.format("All flights to:%s -> %s\n", AirportEnum.BER, flightSearcher.allFlightsToAirport(AirportEnum.BER));
+
+
+       List<List<Flight>> flightPlan = flightSearcher.findFlightsWithConnections(flightToSearchConnections);
+       System.out.format("List of possible flights with connection for flight:%s\n",flightToSearchConnections);
         flightPlan.stream()
                 .forEach(flightList -> System.out.format("Possible route:%s\n", flightList));
     }

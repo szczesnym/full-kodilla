@@ -8,10 +8,6 @@ public class Flight {
     private AirportEnum fromAirport;
     private AirportEnum toAirport;
 
-    public Flight() {
-        super();
-    }
-
     public Flight(AirportEnum fromAirport, AirportEnum toAirport) {
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
@@ -42,6 +38,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return new String("Departure/From:" + this.fromAirport + " Arrival/To:" + this.toAirport);
+        return "Departure/From:" + this.fromAirport + " Arrival/To:" + this.toAirport;
     }
 }
