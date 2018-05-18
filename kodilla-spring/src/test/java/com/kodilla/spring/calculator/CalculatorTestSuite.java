@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 
 
-public class calculatorTestSuite {
+public class CalculatorTestSuite {
     @Test
     public void testCalculations() throws ArithmeticException{
     //Given
