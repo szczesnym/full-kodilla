@@ -23,8 +23,12 @@ public final class Library extends Prototype {
         return books;
     }
 
-    private void setBooks(Set<Book> setBooks) {
-        this.books = setBooks;
+    public void addBookToLibrary(Book book) {
+        books.add(book);
+    }
+
+    private void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     public Library shallowCopy() throws CloneNotSupportedException {
@@ -34,10 +38,12 @@ public final class Library extends Prototype {
     public Library deepCopy() throws CloneNotSupportedException {
         Library copyLibrary = this.shallowCopy();
         Set<Book> copyBooks = new HashSet<>();
-        for(Book book:this.getBooks()) {
-            copyBooks.add(book);
+        for (Book book : this.getBooks()) {
+            copyLibrary.addBookToLibrary(book);
+            //copyBooks.add(book);
         }
-        copyLibrary.setBooks(copyBooks);
-        copyLibrary.setName("Copy:"+this.name);
+        //copyLibrary.setBooks(copyBooks);
+        copyLibrary.setName("Copy:" + this.name);
+        return copyLibrary;
     }
 }
