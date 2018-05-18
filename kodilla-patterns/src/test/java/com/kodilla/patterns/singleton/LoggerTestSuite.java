@@ -10,7 +10,7 @@ public class LoggerTestSuite {
         Logger sutLogger = Logger.getInstance();
         //When
         sutLogger.log("First log");
-       //
+       //Then
         Assert.assertEquals("First log", sutLogger.getLastLog());
     }
 }
