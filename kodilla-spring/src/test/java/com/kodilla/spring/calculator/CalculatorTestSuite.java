@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -14,8 +16,8 @@ public class CalculatorTestSuite {
     @Test
     public void testCalculations() throws ArithmeticException{
     //Given
-        Display display = new Display();
-        Calculator calculator = new Calculator(display);
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.calculator");
+        Calculator calculator = context.getBean(Calculator.class);
      //When
      double sutAddResult = calculator.add(2.5, 3.0);
      double sutSubResult = calculator.sub(2.5, 3.0);
