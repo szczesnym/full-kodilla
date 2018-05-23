@@ -16,8 +16,19 @@ public class BoardConfig {
         return new Board(toDo, inProgress, done);
     }
 
-    @Bean
-    public TaskList taskList() {
+    @Bean(name = "toDoTaskList")
+    public TaskList getToDo() {
         return new TaskList();
     }
+
+    @Bean(name = "inProgressTaskList")
+    public TaskList getInProgress() {
+        return new TaskList();
+    }
+
+    @Bean(name = "doneTaskList")
+    public TaskList geDone() {
+        return new TaskList();
+    }
+
 }

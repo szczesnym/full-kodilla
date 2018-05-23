@@ -1,6 +1,7 @@
 package com.kodilla.spring.portfolio;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,7 +14,7 @@ public class Board {
         this.inProgressList = inProgressList;
         this.doneList = doneList;
     }
-
+    @Bean(name = "toDoTaskList")
     public TaskList getToDoList() {
         return toDoList;
     }
@@ -21,6 +22,7 @@ public class Board {
     public TaskList getInProgressList() {
         return inProgressList;
     }
+
 
     public TaskList getDoneList() {
         return doneList;

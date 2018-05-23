@@ -14,6 +14,10 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board sutBoard = (Board)context.getBean("board");
+        String[] allBeanNames = context.getBeanDefinitionNames();
+        for(String beanName:allBeanNames) {
+            System.out.println(beanName);
+        }
         //When
         sutBoard.addTaskDoneList("First done task");
         sutBoard.addTaskInProgresList("First inProgress task");
