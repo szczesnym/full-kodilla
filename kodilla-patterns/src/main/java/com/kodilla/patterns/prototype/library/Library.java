@@ -39,7 +39,8 @@ public final class Library extends Prototype {
         Library copyLibrary = this.shallowCopy();
         Set<Book> copyBooks = new HashSet<>();
         for (Book book : this.getBooks()) {
-            copyLibrary.addBookToLibrary(book);
+            Book copyBook = new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate());
+            copyLibrary.addBookToLibrary(copyBook);
             //copyBooks.add(book);
         }
         //copyLibrary.setBooks(copyBooks);
