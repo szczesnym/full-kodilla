@@ -27,11 +27,11 @@ public class TaskDaoTestSuite {
 
         //Then
         int id = task.getId();
-        Task readTask = taskDao.findOne(id);
+        Task readTask = taskDao.findById(id).orElse(null);
         Assert.assertEquals(id, readTask.getId());
 
         //CleanUp
-        taskDao.delete(id);
+        taskDao.delete(task);
     }
     @Test
     public void testTaskDaoFindByDuration() {
@@ -48,6 +48,6 @@ public class TaskDaoTestSuite {
 
         //CleanUp
         int id = readTasks.get(0).getId();
-        taskDao.delete(id);
+        taskDao.delete(task);
     }
 }
