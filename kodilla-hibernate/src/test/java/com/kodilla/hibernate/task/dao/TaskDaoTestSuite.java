@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+
 public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
@@ -47,7 +49,7 @@ public class TaskDaoTestSuite {
         Assert.assertEquals(1, readTasks.size());
 
         //CleanUp
-        int id = readTasks.get(0).getId();
+        //int id = readTasks.get(0).getId();
         taskDao.delete(task);
     }
 }

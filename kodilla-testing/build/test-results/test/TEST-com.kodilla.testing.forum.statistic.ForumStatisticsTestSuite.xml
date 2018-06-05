@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-06-04T19:26:31" hostname="marcinsHP" time="0.144">
+  <properties/>
+  <testcase name="testCalculateAdvStatistic0ALLCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.14"/>
+  <testcase name="testCalculateAdvStatistic0User0PostCountCommentCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticUserPostCountCommentCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticPostCountSmallerThenCommentCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.0"/>
+  <testcase name="TestCalculateAdvStatisticPostCountGreaterThenCommentCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatistic0UserPostCountCommentCount" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticHundredUsers" classname="com.kodilla.testing.forum.statistic.ForumStatisticsTestSuite" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "TASKS")
+
 public final class Task {
     private int id;
     private String description;
@@ -29,32 +30,32 @@ public final class Task {
         return id;
     }
 
+    private void setId(int id) {
+        this.id = id;
+    }
+
     @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
-    }
-
-    @NotNull
-    @Column(name="CREATED")
-    public Date getCreated() {
-        return created;
-    }
-
-    @Column(name="DURATION")
-    public int getDuration() {
-        return duration;
-    }
-
-    private void setId(int id) {
-        this.id = id;
     }
 
     private void setDescription(String description) {
         this.description = description;
     }
 
+    @NotNull
+    @Column(name = "CREATED")
+    public Date getCreated() {
+        return created;
+    }
+
     private void setCreated(Date created) {
         this.created = created;
+    }
+
+    @Column(name = "DURATION")
+    public int getDuration() {
+        return duration;
     }
 
     private void setDuration(int duration) {

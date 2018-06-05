@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.patterns.factory.tasks.TaskFactoryTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-06-04T19:26:27" hostname="marcinsHP" time="0.003">
+  <properties/>
+  <testcase name="executedTest" classname="com.kodilla.patterns.factory.tasks.TaskFactoryTestSuite" time="0.003"/>
+  <testcase name="classTypeTest" classname="com.kodilla.patterns.factory.tasks.TaskFactoryTestSuite" time="0.0"/>
+  <system-out><![CDATA[Executing Driving Task
+Executing Shopping Task
+Executing Paining Task
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

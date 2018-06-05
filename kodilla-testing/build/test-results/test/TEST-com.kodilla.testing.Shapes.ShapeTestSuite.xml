@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.Shapes.ShapeTestSuite" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-06-04T19:26:31" hostname="marcinsHP" time="0.005">
+  <properties/>
+  <testcase name="testAddShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
+  <testcase name="testRemoveShapeFromListNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
+  <testcase name="testAddShapeNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <testcase name="testNFigureFromListNotExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <testcase name="testRemoveShapeFromListNotNullExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <testcase name="testNFigureFromList" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
+  <testcase name="testRemoveShapeNotNull" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.001"/>
+  <testcase name="testRemoveShapeFromListNotNullNotExisting" classname="com.kodilla.testing.Shapes.ShapeTestSuite" time="0.0"/>
+  <system-out><![CDATA[Preparing to execute test #1
+Preparing to execute test #2
+Preparing to execute test #3
+Preparing to execute test #4
+Preparing to execute test #5
+Preparing to execute test #6
+Preparing to execute test #7
+Preparing to execute test #8
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
