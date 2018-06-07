@@ -22,33 +22,46 @@ public class InvoiceDaoTestSuite {
     @Test
     public void testInvoiceDaoSave() throws Exception {
         //Given
-        Item sutItem1 = new Item("Item 1");
-        Item sutItem2 = new Item("Item 2");
-        Item sutItem3 = new Item("Item 3");
-        Item sutItem4 = new Item("Item 4");
+        Item testItem1 = new Item("Item 1");
+        Item testItem2 = new Item("Item 2");
+        Item testItem3 = new Item("Item 3");
+        Item testItem4 = new Item("Item 4");
 
-        InvoiceLine sutInvoiceLine1 = new InvoiceLine(sutItem1,new BigDecimal(10.0), 7);
-        InvoiceLine sutInvoiceLine2= new InvoiceLine(sutItem2,new BigDecimal(11.0), 8);
-        InvoiceLine sutInvoiceLine3 = new InvoiceLine(sutItem3,new BigDecimal(12.0), 9);
-        InvoiceLine sutInvoiceLine4 = new InvoiceLine(sutItem4,new BigDecimal(13.0), 10);
+        InvoiceLine testInvoiceLine1 = new InvoiceLine(testItem1,new BigDecimal(10.0), 7);
+        InvoiceLine testInvoiceLine2= new InvoiceLine(testItem2,new BigDecimal(11.0), 8);
+        InvoiceLine testInvoiceLine3 = new InvoiceLine(testItem3,new BigDecimal(12.0), 9);
+        InvoiceLine testInvoiceLine4 = new InvoiceLine(testItem4,new BigDecimal(13.0), 10);
 
-        Invoice sutInvoice = new Invoice("INV0001");
-        sutInvoice.getLines().add(sutInvoiceLine1);
-        sutInvoice.getLines().add(sutInvoiceLine2);
-        sutInvoice.getLines().add(sutInvoiceLine3);
-        sutInvoice.getLines().add(sutInvoiceLine4);
+        Invoice testInvoice = new Invoice("INV0001");
+        testInvoice.getLines().add(testInvoiceLine1);
+        testInvoice.getLines().add(testInvoiceLine2);
+        testInvoice.getLines().add(testInvoiceLine3);
+        testInvoice.getLines().add(testInvoiceLine4);
+
         //When
-        invoiceDao.save(sutInvoice);
-        //Then
-        Assert.assertNotEquals(0, sutInvoiceLine1.getId());
-        Assert.assertNotEquals(0, sutInvoiceLine2.getId());
-        Assert.assertNotEquals(0, sutInvoiceLine3.getId());
-        Assert.assertNotEquals(0, sutInvoiceLine4.getId());
+        invoiceDao.save(testInvoice);
+        int testInvoiceId = testInvoice.getId();
+        Invoice sutInvoice = invoiceDao.findById(testInvoiceId).orElse(null);
 
-        Assert.assertNotEquals(0, sutInvoice.getId());
+        //Then
+        /*Assert.assertEquals(4, sutInvoice.getLines().size());
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine1));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine2));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine3));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine4));
+
+        int testInvoiceLine1No = sutInvoice.getLines().indexOf(testInvoiceLine1);
+        int testInvoiceLine2No = sutInvoice.getLines().indexOf(testInvoiceLine2);
+        int testInvoiceLine3No = sutInvoice.getLines().indexOf(testInvoiceLine3);
+        int testInvoiceLine4No = sutInvoice.getLines().indexOf(testInvoiceLine4);
+
+        Assert.assertEquals(testItem1, sutInvoice.getLines().get(testInvoiceLine1No).getItem());
+        Assert.assertEquals(testItem2, sutInvoice.getLines().get(testInvoiceLine2No).getItem());
+        Assert.assertEquals(testItem3, sutInvoice.getLines().get(testInvoiceLine3No).getItem());
+        Assert.assertEquals(testItem4, sutInvoice.getLines().get(testInvoiceLine4No).getItem());*/
+
         //Clean up
-        //bez catch-try bo zadeklarowałem test jako throws
-        //invoiceDao.delete(sutInvoice);
+        invoiceDao.delete(sutInvoice);
     }
 
 }

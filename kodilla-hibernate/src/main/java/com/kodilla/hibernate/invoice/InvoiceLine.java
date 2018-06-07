@@ -78,17 +78,7 @@ public class InvoiceLine {
         this.invoice = invoice;
     }
 
-
-
     public void setItem(Item item) {
         this.item = item;
     }
-
-
-
-
-
-
-
-
 }

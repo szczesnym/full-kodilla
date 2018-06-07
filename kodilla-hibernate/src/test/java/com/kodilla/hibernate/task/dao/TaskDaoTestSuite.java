@@ -17,9 +17,9 @@ import java.util.List;
 @SpringBootTest
 
 public class TaskDaoTestSuite {
+    private static final String DESCRIPTION = "Test: Learn Hibernate";
     @Autowired
     private TaskDao taskDao;
-    private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
     public void testTaskDaoSave() {
@@ -32,11 +32,12 @@ public class TaskDaoTestSuite {
         //Then
         int id = task.getId();
         Task readTask = taskDao.findById(id).orElse(null);
-        Assert.assertEquals(id, readTask.getId());
+        Assert.assertEquals(readTask.getDescription(), task.getDescription());
 
         //CleanUp
         taskDao.delete(task);
     }
+
     @Test
     public void testTaskDaoFindByDuration() {
         //Given

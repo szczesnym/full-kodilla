@@ -22,6 +22,7 @@ public class TasksListDaoTestSuite {
     @Autowired
     private TaskListDao tasksListDao;
     private TasksList tasksList;
+    private static final  String LISTNAME = "To do List";
 
     @Test
     public void addToTasksListTest() {
@@ -52,7 +53,7 @@ public class TasksListDaoTestSuite {
     @Test
     public void testTaskListDaoSaveWithTasks() {
         //Given
-        String LISTNAME = "To do List";
+
         Task task = new Task("Test: Learn Hibernate", 14);
         Task task2 = new Task("Test: Write some entities", 3);
         TaskFinancialDetails tfd = new TaskFinancialDetails(new BigDecimal(20), false);
@@ -67,12 +68,15 @@ public class TasksListDaoTestSuite {
 
         //When
         tasksListDao.save(taskList);
-        int id = taskList.getId();
+        int savedTaskId = taskList.getId();
+        TasksList sutTaskList = tasksListDao.findById(savedTaskId);
 
         //Then
-        Assert.assertNotEquals(0, id);
+        //sutTaskList.stream().forEach(sutTaskListItem -> Assert);
+        Assert.assertEquals(taskList.getListName(), sutTaskList.getListName());
+        Assert.assertEquals(taskList.getDescription(), sutTaskList.getDescription());
 
         //CleanUp
-        //taskListDao.delete(id);
+        tasksListDao.delete(taskList);
     }
 }
