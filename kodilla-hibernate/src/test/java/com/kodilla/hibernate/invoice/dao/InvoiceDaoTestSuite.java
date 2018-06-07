@@ -27,28 +27,34 @@ public class InvoiceDaoTestSuite {
         Item testItem3 = new Item("Item 3");
         Item testItem4 = new Item("Item 4");
 
-        InvoiceLine testInvoiceLine1 = new InvoiceLine(testItem1,new BigDecimal(10.0), 7);
-        InvoiceLine testInvoiceLine2= new InvoiceLine(testItem2,new BigDecimal(11.0), 8);
-        InvoiceLine testInvoiceLine3 = new InvoiceLine(testItem3,new BigDecimal(12.0), 9);
-        InvoiceLine testInvoiceLine4 = new InvoiceLine(testItem4,new BigDecimal(13.0), 10);
+        InvoiceLine testInvoiceLine1 = new InvoiceLine(testItem1,new BigDecimal(10.00), 7);
+        InvoiceLine testInvoiceLine2= new InvoiceLine(testItem2,new BigDecimal(11.00), 8);
+        InvoiceLine testInvoiceLine3 = new InvoiceLine(testItem3,new BigDecimal(12.00), 9);
+        InvoiceLine testInvoiceLine4 = new InvoiceLine(testItem4,new BigDecimal(13.00), 10);
 
         Invoice testInvoice = new Invoice("INV0001");
         testInvoice.getLines().add(testInvoiceLine1);
         testInvoice.getLines().add(testInvoiceLine2);
         testInvoice.getLines().add(testInvoiceLine3);
         testInvoice.getLines().add(testInvoiceLine4);
-
+        testInvoiceLine1.setInvoice(testInvoice);
+        testInvoiceLine2.setInvoice(testInvoice);
+        testInvoiceLine3.setInvoice(testInvoice);
+        testInvoiceLine4.setInvoice(testInvoice);
+        //testInvoice.show();
         //When
         invoiceDao.save(testInvoice);
+        testInvoice.show();
         int testInvoiceId = testInvoice.getId();
         Invoice sutInvoice = invoiceDao.findById(testInvoiceId).orElse(null);
+        sutInvoice.show();
 
         //Then
-        /*Assert.assertEquals(4, sutInvoice.getLines().size());
+        Assert.assertEquals(4, sutInvoice.getLines().size());
         Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine1));
-        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine2));
-        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine3));
-        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine4));
+        /*Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine2));
+        //Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine3));
+        //Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine4));
 
         int testInvoiceLine1No = sutInvoice.getLines().indexOf(testInvoiceLine1);
         int testInvoiceLine2No = sutInvoice.getLines().indexOf(testInvoiceLine2);

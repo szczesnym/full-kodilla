@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "invoices")
+@Table(name = "INVOICES")
 public class Invoice {
     private int id;
     private String number;
@@ -51,5 +51,12 @@ public class Invoice {
 
     public void setLines(List<InvoiceLine> lines) {
         this.lines = lines;
+    }
+
+    public void show() {
+        System.out.format("Invoice ID:%d\n", id);
+        System.out.format("Invoice NUMBER:%s\n", number);
+        lines.stream().forEach(line -> System.out.print(line.show()));
+
     }
 }
