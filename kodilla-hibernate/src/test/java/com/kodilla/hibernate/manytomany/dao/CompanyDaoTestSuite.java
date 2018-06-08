@@ -83,11 +83,11 @@ public class CompanyDaoTestSuite {
         List<Company> sutDataCompanies = companyDao.firstThreeCharactersAreEqualParam("Dat");
         List<Company> sutGreyCompanies = companyDao.firstThreeCharactersAreEqualParam("Gre");
         //Then
-        Assert.assertNotEquals(0, sutSoftwareCompanies.stream().count());
+        Assert.assertNotEquals(0, sutSoftwareCompanies.size());
         sutSoftwareCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Sof")));
-        Assert.assertNotEquals(0, sutDataCompanies.stream().count());
+        Assert.assertNotEquals(0, sutDataCompanies.size());
         sutDataCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Dat")));
-        Assert.assertNotEquals(0, sutGreyCompanies.stream().count());
+        Assert.assertNotEquals(0, sutGreyCompanies.size());
         sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Sof")));
         sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Dat")));
         sutGreyCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Gre")));
