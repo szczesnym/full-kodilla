@@ -52,9 +52,9 @@ public class InvoiceDaoTestSuite {
         //Then
         Assert.assertEquals(4, sutInvoice.getLines().size());
         Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine1));
-        /*Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine2));
-        //Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine3));
-        //Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine4));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine2));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine3));
+        Assert.assertTrue(sutInvoice.getLines().contains(testInvoiceLine4));
 
         int testInvoiceLine1No = sutInvoice.getLines().indexOf(testInvoiceLine1);
         int testInvoiceLine2No = sutInvoice.getLines().indexOf(testInvoiceLine2);
@@ -64,7 +64,7 @@ public class InvoiceDaoTestSuite {
         Assert.assertEquals(testItem1, sutInvoice.getLines().get(testInvoiceLine1No).getItem());
         Assert.assertEquals(testItem2, sutInvoice.getLines().get(testInvoiceLine2No).getItem());
         Assert.assertEquals(testItem3, sutInvoice.getLines().get(testInvoiceLine3No).getItem());
-        Assert.assertEquals(testItem4, sutInvoice.getLines().get(testInvoiceLine4No).getItem());*/
+        Assert.assertEquals(testItem4, sutInvoice.getLines().get(testInvoiceLine4No).getItem());
 
         //Clean up
         invoiceDao.delete(sutInvoice);

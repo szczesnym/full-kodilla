@@ -2,29 +2,33 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
+    Employee johnSmith, stephanieClarckson, lindaKovalsky;
+    Company softwareMachine, dataMaesters, greyMatter;
 
-    @Test
-    public void testSaveManyToMany(){
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+    @Before
+    public void init() {
+        johnSmith = new Employee("John", "Smith");
+        stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        lindaKovalsky = new Employee("Linda", "Kovalsky");
 
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
+        softwareMachine = new Company("Software Machine");
+        dataMaesters = new Company("Data Maesters");
+        greyMatter = new Company("Grey Matter");
 
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
@@ -38,26 +42,76 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
+    }
+
+    @After
+    public void cleanUp() throws Exception {
+        //Clean UP
+        companyDao.delete(softwareMachine);
+        companyDao.delete(dataMaesters);
+        companyDao.delete(greyMatter);
+    }
+
+    @Test
+    public void testSaveManyToMany() {
+        //Given
         //When
         companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
 
+        int softwareMachineId = softwareMachine.getId();
+        int dataMaestersId = dataMaesters.getId();
+        int greyMatterId = greyMatter.getId();
         //Then
         Assert.assertNotEquals(0, softwareMachineId);
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
+        //Clean up
+        companyDao.delete(softwareMachine);
+        companyDao.delete(dataMaesters);
+        companyDao.delete(greyMatter);
+    }
 
-        //CleanUp
-        //try {
-        //    companyDao.delete(softwareMachineId);
-        //    companyDao.delete(dataMaestersId);
-        //    companyDao.delete(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+    @Test
+    public void testSearchCompanies() {
+        //When
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+        List<Company> sutSoftwareCompanies = companyDao.withNamesStartingWith("Sof");
+        List<Company> sutDataCompanies = companyDao.withNamesStartingWith("Dat");
+        List<Company> sutGreyCompanies = companyDao.withNamesStartingWith("Gre");
+        //Then
+        Assert.assertNotEquals(0, sutSoftwareCompanies.stream().count());
+        sutSoftwareCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Sof")));
+        Assert.assertNotEquals(0, sutDataCompanies.stream().count());
+        sutDataCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Dat")));
+        Assert.assertNotEquals(0, sutGreyCompanies.stream().count());
+        sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Sof")));
+        sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Dat")));
+        sutGreyCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Gre")));
+    }
+
+    @Test
+    public void findEmployeesOfLastname() throws Exception {
+        //When
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+        List<Employee> sutEmplyees1 = employeeDao.withLastnameOf("Smith");
+        List<Employee> sutEmplyees2 = employeeDao.withLastnameOf("Clarckson");
+        List<Employee> sutEmplyees3 = employeeDao.withLastnameOf("Kovalsky");
+        //Then
+        sutEmplyees1.stream().forEach(employee -> Assert.assertEquals("Smith", employee.getLastname()));
+        sutEmplyees2.stream().forEach(employee -> Assert.assertEquals("Clarckson", employee.getLastname()));
+
+        sutEmplyees3.stream().forEach(employee -> Assert.assertNotEquals("Smith", employee.getLastname()));
+        sutEmplyees3.stream().forEach(employee -> Assert.assertNotEquals("Clarckson", employee.getLastname()));
+        sutEmplyees3.stream().forEach(employee -> Assert.assertEquals("Kovalsky", employee.getLastname()));
+        //Clean up
+        employeeDao.delete(johnSmith);
+        employeeDao.delete(stephanieClarckson);
+        employeeDao.delete(lindaKovalsky);
     }
 }

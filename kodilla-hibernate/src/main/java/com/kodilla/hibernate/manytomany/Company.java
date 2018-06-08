@@ -7,6 +7,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.withNamesStartingWith",
+        query = "Select * From companies where left(company_name, 3) = :COMPANY_NAME_START ",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "Companies")
 public class Company {
