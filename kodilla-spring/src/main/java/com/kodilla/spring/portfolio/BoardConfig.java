@@ -7,11 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BoardConfig {
-    @Autowired
     @Bean
     public Board board() {
-
-
         TaskList toDo = new TaskList();
         TaskList inProgress = new TaskList();
         TaskList done = new TaskList();
