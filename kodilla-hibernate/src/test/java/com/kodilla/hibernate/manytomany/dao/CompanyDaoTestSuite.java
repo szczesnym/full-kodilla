@@ -79,9 +79,9 @@ public class CompanyDaoTestSuite {
         companyDao.save(softwareMachine);
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
-        List<Company> sutSoftwareCompanies = companyDao.withNamesStartingWith("Sof");
-        List<Company> sutDataCompanies = companyDao.withNamesStartingWith("Dat");
-        List<Company> sutGreyCompanies = companyDao.withNamesStartingWith("Gre");
+        List<Company> sutSoftwareCompanies = companyDao.firstThreeCharactersAreEqualParam("Sof");
+        List<Company> sutDataCompanies = companyDao.firstThreeCharactersAreEqualParam("Dat");
+        List<Company> sutGreyCompanies = companyDao.firstThreeCharactersAreEqualParam("Gre");
         //Then
         Assert.assertNotEquals(0, sutSoftwareCompanies.stream().count());
         sutSoftwareCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Sof")));

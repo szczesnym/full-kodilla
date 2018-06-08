@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.withNamesStartingWith",
+        name = "Company.firstThreeCharactersAreEqualParam",
         query = "Select * From companies where left(company_name, 3) = :COMPANY_NAME_START ",
         resultClass = Company.class
 )
