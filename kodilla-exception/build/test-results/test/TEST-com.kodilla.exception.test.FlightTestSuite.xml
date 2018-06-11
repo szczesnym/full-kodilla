@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.exception.test.FlightTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-06-08T19:32:49" hostname="DESKTOP-U0UDQM1" time="0.001">
+<testsuite name="com.kodilla.exception.test.FlightTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-06-11T08:20:00" hostname="marcinsHP" time="0.009">
   <properties/>
-  <testcase name="checkFromCityInMapToCityInMap" classname="com.kodilla.exception.test.FlightTestSuite" time="0.001"/>
+  <testcase name="checkFromCityInMapToCityInMap" classname="com.kodilla.exception.test.FlightTestSuite" time="0.008"/>
   <testcase name="checkFromCityInMapToCityNotInMap" classname="com.kodilla.exception.test.FlightTestSuite" time="0.0"/>
   <testcase name="checkFromCityNotInMap" classname="com.kodilla.exception.test.FlightTestSuite" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

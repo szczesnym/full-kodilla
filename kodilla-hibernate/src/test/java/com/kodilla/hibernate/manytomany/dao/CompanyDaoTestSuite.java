@@ -64,9 +64,9 @@ public class CompanyDaoTestSuite {
         int dataMaestersId = dataMaesters.getId();
         int greyMatterId = greyMatter.getId();
         //Then
-        Assert.assertNotEquals(0, softwareMachineId);
-        Assert.assertNotEquals(0, dataMaestersId);
-        Assert.assertNotEquals(0, greyMatterId);
+        Assert.assertTrue(companyDao.existsById(softwareMachineId));
+        Assert.assertTrue(companyDao.existsById(dataMaestersId));
+        Assert.assertTrue(companyDao.existsById(greyMatterId));
         //Clean up
         companyDao.delete(softwareMachine);
         companyDao.delete(dataMaesters);
