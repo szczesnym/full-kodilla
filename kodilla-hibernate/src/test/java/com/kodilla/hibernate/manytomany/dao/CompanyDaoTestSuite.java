@@ -42,6 +42,9 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
     }
 
     @After
@@ -56,9 +59,7 @@ public class CompanyDaoTestSuite {
     public void testSaveManyToMany() {
         //Given
         //When
-        companyDao.save(softwareMachine);
-        companyDao.save(dataMaesters);
-        companyDao.save(greyMatter);
+
 
         int softwareMachineId = softwareMachine.getId();
         int dataMaestersId = dataMaesters.getId();
@@ -68,17 +69,12 @@ public class CompanyDaoTestSuite {
         Assert.assertTrue(companyDao.existsById(dataMaestersId));
         Assert.assertTrue(companyDao.existsById(greyMatterId));
         //Clean up
-        companyDao.delete(softwareMachine);
-        companyDao.delete(dataMaesters);
-        companyDao.delete(greyMatter);
+
     }
 
     @Test
     public void testSearchCompanies() {
         //When
-        companyDao.save(softwareMachine);
-        companyDao.save(dataMaesters);
-        companyDao.save(greyMatter);
         List<Company> sutSoftwareCompanies = companyDao.firstThreeCharactersAreEqualParam("Sof");
         List<Company> sutDataCompanies = companyDao.firstThreeCharactersAreEqualParam("Dat");
         List<Company> sutGreyCompanies = companyDao.firstThreeCharactersAreEqualParam("Gre");
@@ -96,9 +92,6 @@ public class CompanyDaoTestSuite {
     @Test
     public void findEmployeesOfLastname() throws Exception {
         //When
-        employeeDao.save(johnSmith);
-        employeeDao.save(stephanieClarckson);
-        employeeDao.save(lindaKovalsky);
         List<Employee> sutEmplyees1 = employeeDao.withLastnameOf("Smith");
         List<Employee> sutEmplyees2 = employeeDao.withLastnameOf("Clarckson");
         List<Employee> sutEmplyees3 = employeeDao.withLastnameOf("Kovalsky");
@@ -110,8 +103,5 @@ public class CompanyDaoTestSuite {
         sutEmplyees3.stream().forEach(employee -> Assert.assertNotEquals("Clarckson", employee.getLastname()));
         sutEmplyees3.stream().forEach(employee -> Assert.assertEquals("Kovalsky", employee.getLastname()));
         //Clean up
-        employeeDao.delete(johnSmith);
-        employeeDao.delete(stephanieClarckson);
-        employeeDao.delete(lindaKovalsky);
     }
 }
