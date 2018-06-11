@@ -20,18 +20,15 @@ public class FlightSearcher {
         return flightBook.allFlights(toAirport, FlightPoint.To);
     }
 
-
     public List<List<Flight>> findFlightsWithConnections(Flight flight) {
         List<AirportEnum> listMiddleAirport = new ArrayList<>();
         List<List<Flight>> flightPlan = new ArrayList<>();
         List<AirportEnum> listOfPossibleTo = flightBook.searchBookFromOrTo(flight.getDepartureAirport(), FlightPoint.From);
         List<AirportEnum> listOfPossibleFrom = this.flightBook.searchBookFromOrTo(flight.getArrivalAirport(), FlightPoint.To);
         for (AirportEnum midAirportFrom : listOfPossibleFrom) {
-            for (AirportEnum midAirportTo : listOfPossibleTo) {
-                if (midAirportFrom.equals(midAirportTo)) {
-                    listMiddleAirport.add(midAirportTo);
-                }
-            }
+            listMiddleAirport = listOfPossibleTo.stream()
+                    .filter(midAirportTo -> midAirportFrom.equals(midAirportTo))
+                    .collect(Collectors.toList());
         }
         for (AirportEnum middleAirport : listMiddleAirport) {
             List<Flight> possibleConnection = new ArrayList<>();
@@ -41,8 +38,6 @@ public class FlightSearcher {
             possibleConnection.add(endingFlight);
             flightPlan.add(possibleConnection);
         }
-
         return flightPlan;
     }
-
 }
