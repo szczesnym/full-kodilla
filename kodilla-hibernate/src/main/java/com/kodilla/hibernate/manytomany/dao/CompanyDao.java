@@ -14,4 +14,12 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query
     List<Company> firstThreeCharactersAreEqualParam(@Param("COMPANY_NAME_START") String paramCompanyName);
+
+/*    @Query
+    List<Company> withNamesContainsParam(@Param("COMPANY_NAME_PARAM") String companyNameParam);
+
+Do dyskusji na telco
+
+*/
+    List<Company> findByNameContaining(String name);
 }

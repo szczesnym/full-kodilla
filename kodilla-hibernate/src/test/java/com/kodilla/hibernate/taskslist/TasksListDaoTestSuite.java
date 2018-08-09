@@ -72,7 +72,6 @@ public class TasksListDaoTestSuite {
         TasksList sutTaskList = tasksListDao.findById(savedTaskId);
 
         //Then
-        //sutTaskList.stream().forEach(sutTaskListItem -> Assert);
         Assert.assertEquals(taskList.getListName(), sutTaskList.getListName());
         Assert.assertEquals(taskList.getDescription(), sutTaskList.getDescription());
 

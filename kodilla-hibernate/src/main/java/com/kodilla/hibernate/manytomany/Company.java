@@ -1,18 +1,27 @@
 package com.kodilla.hibernate.manytomany;
 
-import com.kodilla.hibernate.manytomany.dao.CompanyDao;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+//@NamedNativeQueries(
+//        {
+        @NamedNativeQuery(
+                name = "Company.firstThreeCharactersAreEqualParam",
+                query = "Select * From companies where left(company_name, 3) = :COMPANY_NAME_START ",
+                resultClass = Company.class
+        )
+/*
+        @NamedNativeQuery(
+                name = "Company.withNamesContainsParam",
+                query = "select * from companies where company_name LIKE %:COMPANY_NAME_PARAM%",
+                resultClass = Company.class
+        )
+    }
+Do dyskusji na telco
 
-@NamedNativeQuery(
-        name = "Company.firstThreeCharactersAreEqualParam",
-        query = "Select * From companies where left(company_name, 3) = :COMPANY_NAME_START ",
-        resultClass = Company.class
-)
 
+)*/
 @Entity
 @Table(name = "Companies")
 public class Company {

@@ -2,23 +2,25 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import org.junit.*;
 import org.junit.runner.RunWith;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
-    CompanyDao companyDao;
+    private CompanyDao companyDao;
     @Autowired
-    EmployeeDao employeeDao;
-    Employee johnSmith, stephanieClarckson, lindaKovalsky;
-    Company softwareMachine, dataMaesters, greyMatter;
+    private EmployeeDao employeeDao;
+    private Employee johnSmith, stephanieClarckson, lindaKovalsky;
+    private Company softwareMachine, dataMaesters, greyMatter;
 
     @Before
     public void init() {
@@ -59,8 +61,6 @@ public class CompanyDaoTestSuite {
     public void testSaveManyToMany() {
         //Given
         //When
-
-
         int softwareMachineId = softwareMachine.getId();
         int dataMaestersId = dataMaesters.getId();
         int greyMatterId = greyMatter.getId();
@@ -69,7 +69,6 @@ public class CompanyDaoTestSuite {
         Assert.assertTrue(companyDao.existsById(dataMaestersId));
         Assert.assertTrue(companyDao.existsById(greyMatterId));
         //Clean up
-
     }
 
     @Test
@@ -80,13 +79,13 @@ public class CompanyDaoTestSuite {
         List<Company> sutGreyCompanies = companyDao.firstThreeCharactersAreEqualParam("Gre");
         //Then
         Assert.assertNotEquals(0, sutSoftwareCompanies.size());
-        sutSoftwareCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Sof")));
+        sutSoftwareCompanies.forEach(company -> Assert.assertTrue(company.getName().contains("Sof")));
         Assert.assertNotEquals(0, sutDataCompanies.size());
-        sutDataCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Dat")));
+        sutDataCompanies.forEach(company -> Assert.assertTrue(company.getName().contains("Dat")));
         Assert.assertNotEquals(0, sutGreyCompanies.size());
-        sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Sof")));
-        sutGreyCompanies.stream().forEach(company -> Assert.assertFalse(company.getName().contains("Dat")));
-        sutGreyCompanies.stream().forEach(company -> Assert.assertTrue(company.getName().contains("Gre")));
+        sutGreyCompanies.forEach(company -> Assert.assertFalse(company.getName().contains("Sof")));
+        sutGreyCompanies.forEach(company -> Assert.assertFalse(company.getName().contains("Dat")));
+        sutGreyCompanies.forEach(company -> Assert.assertTrue(company.getName().contains("Gre")));
     }
 
     @Test
