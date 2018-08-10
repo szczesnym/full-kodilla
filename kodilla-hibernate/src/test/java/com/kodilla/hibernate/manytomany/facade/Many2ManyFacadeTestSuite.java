@@ -1,6 +1,12 @@
 package com.kodilla.hibernate.manytomany.facade;
 
+import com.kodilla.hibernate.manytomany.Company;
+import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +19,30 @@ import java.util.List;
 @SpringBootTest
 
 public class Many2ManyFacadeTestSuite {
+    private Employee johnSmith, stephanieClarckson, lindaKovalsky;
+    private Company softwareMachine, dataMaesters, greyMatter;
+
+    @Autowired
+    private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
+
     @Autowired
     Many2ManyFacade many2ManyFacade;
+
+
+    @Before
+    public void init() {
+        johnSmith = new Employee("John", "Smith");
+        stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        softwareMachine = new Company("Software Machine");
+        dataMaesters = new Company("Data Maesters");
+        greyMatter = new Company("Grey Matter");
+    }
+
 
     @Test
     public void findCompanyWithName() {
@@ -34,5 +62,17 @@ public class Many2ManyFacadeTestSuite {
         //Then
         Assert.assertEquals(1, listOfEmployeesDto.size());
         Assert.assertEquals("Stephanie",listOfEmployeesDto.get(0).getFirstname());
+    }
+
+    @After
+    public void cleanUp()
+    {
+        companyDao.delete(softwareMachine);
+        companyDao.delete(dataMaesters);
+        companyDao.delete(greyMatter);
+
+        employeeDao.delete(johnSmith);
+        employeeDao.delete(stephanieClarckson);
+        employeeDao.delete(lindaKovalsky);
     }
 }
