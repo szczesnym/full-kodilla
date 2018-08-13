@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class HomeworkObserverTestSuite {
 
     @Test
-    public void updateTest() {
+    public void testObserverModelUpdateMethod() {
         //Given
         HomeworkTask task1 = new HomeworkTask("20", "MarcinS");
         HomeworkTask task2 = new HomeworkTask("21", "MarcinS");
