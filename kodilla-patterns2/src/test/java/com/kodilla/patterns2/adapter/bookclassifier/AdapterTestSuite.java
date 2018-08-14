@@ -35,7 +35,7 @@ public class AdapterTestSuite {
         testSetOfBooks.add(testBook4);
         LibrariesAdapter librariesAdapter = new LibrariesAdapter();
         //When
-        int testPublicationYearMedian = librariesAdapter.medianPublicationYear(testSetOfBooks);
+        int testPublicationYearMedian = librariesAdapter.publicationYearMedian(testSetOfBooks);
         //Then
         assertEquals(2000, testPublicationYearMedian);
 

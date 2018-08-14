@@ -1,20 +1,23 @@
 package com.kodilla.patterns2.adapter.bookclassifier;
 
+import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;
+import com.kodilla.patterns2.adapter.bookclasifier.librarya.Classifier;
 import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookSignature;
 import com.kodilla.patterns2.adapter.bookclasifier.libraryb.Statistics;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class LibrariesAdapter {
+public class LibrariesAdapter implements Classifier {
     private Statistics libraryBStatistics;
 
     public LibrariesAdapter() {
         this.libraryBStatistics = new Statistics();
     }
 
-    public int medianPublicationYear(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> books) {
+    public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> books) {
 
         Map<BookSignature, com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book> tempMapOfBBooks = new HashMap<>();
 
@@ -28,5 +31,7 @@ public class LibrariesAdapter {
             tempMapOfBBooks.put(bookSignature, bookFromB);
         }
         return libraryBStatistics.medianPublicationYear(tempMapOfBBooks);
+
+
     }
 }
