@@ -25,7 +25,7 @@ public class StoredProcTestSuite {
         String sqlCheckTable = "select count(*) as how_many from readers where vip_level=\"Not set\"";
         ResultSet resultSet = statement.executeQuery(sqlCheckTable);
         int howMany = -1;
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             howMany = resultSet.getInt("how_many");
         }
         Assert.assertEquals(0, howMany);
@@ -43,12 +43,13 @@ public class StoredProcTestSuite {
         String sqlProcedureCall = "call UpdateBestSellers()";
         statement.execute(sqlProcedureCall);
 
+        //Then
         String sqlCheckTable = "select count(*) as bestSellerCount from books where bestseller = 1";
         ResultSet resultSet = statement.executeQuery(sqlCheckTable);
         int howMany = -1;
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             howMany = resultSet.getInt("bestSellerCount");
         }
         Assert.assertEquals(1, howMany); //na bazie taki wyszedł jeden jeśli procedura SQL jest poprawna
-   }
+    }
 }
