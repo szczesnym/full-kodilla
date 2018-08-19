@@ -60,7 +60,7 @@ public class CrudAppTestingApp {
                 });
         Thread.sleep(5000);
     }
-    public static void
+
 
     @Before
     public void init() {
