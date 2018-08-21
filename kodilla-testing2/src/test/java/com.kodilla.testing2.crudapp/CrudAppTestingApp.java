@@ -12,13 +12,16 @@ import org.openqa.selenium.support.ui.Select;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+
+
+
+import java.util.stream.Collectors;
 
 public class CrudAppTestingApp {
 
-    private WebDriver driver;
     private static final String PAGES_LINK = "https://szczesnym.github.io/CrudFrontEnd/";
-
-
+    private WebDriver driver;
 
     private String createCrudAppTestTask() throws InterruptedException {
         final String XPATH_TASK_NAME = "/html/body/main/section[1]/form/fieldset[1]/input";
@@ -44,10 +47,23 @@ public class CrudAppTestingApp {
         return taskName;
     }
 
-    private void sendTaskToTrello(String taskName) throws InterruptedException{
+    private void removeTaskByName(String taskName) throws InterruptedException{
         driver.navigate().refresh();
-        while ((!driver.findElement(By.xpath("//select[1]")).isDisplayed()));
-        driver.findElements(By.xpath("//form[@class=\"datatable__row]\"]")).stream()
+        while ((!driver.findElement(By.xpath("//select[1]")).isDisplayed())) ;
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                        .getText().equals(taskName))
+                .forEach(formElement ->{
+                    WebElement deleteButton = formElement.findElement(By.xpath(".//button[4]"));
+                    deleteButton.click();
+                    });
+    }
+
+
+    private void sendTaskToTrello(String taskName) throws InterruptedException {
+        driver.navigate().refresh();
+        while ((!driver.findElement(By.xpath("//select[1]")).isDisplayed())) ;
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                         .getText().equals(taskName))
                 .forEach(theForm -> {
@@ -56,11 +72,11 @@ public class CrudAppTestingApp {
                     select.selectByIndex(1);
 
                     WebElement buttonCreateCard = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
-                    buttonCreateCard.click();;
+                    buttonCreateCard.click();
+
                 });
         Thread.sleep(5000);
     }
-
 
     @Before
     public void init() {
@@ -78,7 +94,9 @@ public class CrudAppTestingApp {
     public void shouldCreateTrelloCard() throws InterruptedException {
 
         String taskName = createCrudAppTestTask();
+        System.out.println("Task name:" +taskName);
         //sendTaskToTrello(taskName);
+        removeTaskByName(taskName);
     }
 
 }
